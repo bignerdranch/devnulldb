@@ -8,5 +8,12 @@ describe("CommandPacket", function() {
 
       assert.equal(1, packet.getType());
     });
+
+    it("correctly parses the command argument", function() {
+      var packet = CommandPacket.parse("\x0F\x00\x00\x00\x03" + // QUERY packet
+                                       "show databases");
+
+      assert.equal("show databases", packet.getArgument());
+    });
   });
 });
