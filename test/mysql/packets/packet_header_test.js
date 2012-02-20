@@ -11,4 +11,18 @@ describe("PacketHeader", function() {
       assert.equal("\xFF\x7F\x01\x03", header.toBytes());
     });
   });
+
+  describe(".parse", function() {
+    it("parses packet length", function() {
+      var header = PacketHeader.parse("\xFF\x7F\x01\x03");
+
+      assert.equal(98303, header.getLength());
+    });
+
+    it("parses packet number", function() {
+      var header = PacketHeader.parse("\xFF\x7F\x01\x03");
+
+      assert.equal(3, header.getNumber());
+    });
+  });
 });
