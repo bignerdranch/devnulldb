@@ -18,7 +18,7 @@ describe("HandshakeInitializationPacket", function() {
     });
 
     it("properly encodes server capabilities", function() {
-      assert.equal("\xD7\x13", packet.toBytes().substr(24, 2));
+      assert.equal("\x13\xD7", packet.toBytes().substr(24, 2));
     });
 
     it("properly encodes server language", function() {
@@ -26,7 +26,7 @@ describe("HandshakeInitializationPacket", function() {
     });
 
     it("properly encodes server status", function() {
-      assert.equal("\x00\x02", packet.toBytes().substr(27, 2));
+      assert.equal("\x02\x00", packet.toBytes().substr(27, 2));
     });
 
     it("properly encodes the unused buffer", function() {

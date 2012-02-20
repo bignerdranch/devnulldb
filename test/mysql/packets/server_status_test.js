@@ -7,7 +7,7 @@ describe("ServerStatus", function() {
       var status = new ServerStatus(0);
       status.setAutoCommit(true);
 
-      assert.equal("\x00\x02", status.toBytes());
+      assert.equal("\x02\x00", status.toBytes());
     });
 
     it("sets autocommit as false", function() {
