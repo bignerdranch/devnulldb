@@ -16,4 +16,13 @@ describe("CommandPacket", function() {
       assert.equal("show databases", packet.getArgument());
     });
   });
+
+  describe("#isQuery", function() {
+    it("returns true when the command is a query (3)", function() {
+      var packet = CommandPacket.parse("\x0F\x00\x00\x00\x03" + // QUERY packet
+                                       "show databases");
+
+      assert.ok(packet.isQuery());
+    });
+  });
 });
